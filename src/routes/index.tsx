@@ -42,7 +42,7 @@ const RenderPage: React.FC<RenderPageProps> = ({ page, navbarText }) => {
     );
 };
 
-export function MyRoutes() {
+export default function MyRoutes() {
     return (
         <BrowserRouter>
             <Routes>
@@ -53,5 +53,4 @@ export function MyRoutes() {
         </BrowserRouter>
     );
 };
-
-export default MyRoutes;
+ 
