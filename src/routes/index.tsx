@@ -6,6 +6,7 @@ import { RiHomeLine } from "react-icons/ri";
 import { ReactNode } from 'react';
 import { Container } from '../components/Navbar/styles';
 import DefaultLayout from '../layout/Default';
+import { PiUserCirclePlusLight } from "react-icons/pi";
 
 interface AsideItem {
     label: string;
@@ -32,6 +33,24 @@ const RenderPage: React.FC<RenderPageProps> = ({ page, navbarText }) => {
                         label: 'Inicio',
                         redirectTo: '/dashboard',
                         icon: <RiHomeLine size={24} />
+                    },
+                    {
+                        label: 'Cadastrar paciente',
+                        redirectTo: '/cadastrar-p',
+                        icon: <PiUserCirclePlusLight size={24} />
+                    },
+                    {
+                        label: 'Marca consulta',
+                        redirectTo: '/cadastrar-p',
+                        icon: <PiUserCirclePlusLight size={24} />
+                    },
+                    {
+                        label: 'Consultas',
+                        icon: <PiUserCirclePlusLight size={24} />
+                    },{
+                        label: 'Cadastrar clínica',
+                        redirectTo: '/cadastrar-p',
+                        icon: <PiUserCirclePlusLight size={24} />
                     },
                 ]}
                 navbarText={navbarText}
