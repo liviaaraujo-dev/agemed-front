@@ -19,7 +19,7 @@ const Sidebar: React.FC<SidebarProps> = ({ asideData }) => {
       <BodyNoBlurContainer>
         <BodyContainer>
           <TextContainer>
-            <StyledText>AgeMed</StyledText>
+            <StyledText className="text-center font-caveat text-5xl font-bold">AgeMed</StyledText>
           </TextContainer>
           <LinksContainer>
             {asideData.map((v, i) => (
