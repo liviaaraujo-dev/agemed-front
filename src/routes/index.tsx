@@ -8,6 +8,8 @@ import { Container } from '../components/Navbar/styles';
 import DefaultLayout from '../layout/Default';
 import { PiUserCirclePlusLight } from "react-icons/pi";
 import useAuthToken from '../hooks/useAuthToken';
+import DoctorPage from '../pages/doctor';
+import CreateDoctorPage from '../pages/create-doctor';
 
 interface AsideItem {
     label: string;
@@ -16,7 +18,7 @@ interface AsideItem {
 }
 interface RenderPageProps {
     page: ReactNode;
-    navbarText: string;
+    navbarText?: string;
 }
 
   const RenderPage: React.FC<RenderPageProps> = ({ page, navbarText }) => {
@@ -37,6 +39,11 @@ interface RenderPageProps {
                     {
                         label: 'Marca consulta',
                         redirectTo: '/cadastrar-p',
+                        icon: <PiUserCirclePlusLight size={24} />
+                    },
+                    {
+                        label: 'Médicos',
+                        redirectTo: '/medicos',
                         icon: <PiUserCirclePlusLight size={24} />
                     },
                     {
@@ -65,8 +72,9 @@ export default function MyRoutes() {
                 <Route path="/" element={<Login />} />
                 <Route path="/cadastrar-clinica" element={<SignUpPage />} />
                 <Route path="/home" element={token ? <RenderPage page={<HomePage />} navbarText="Dashboard" /> : <Navigate to="/" replace /> } />
+                <Route path="/medicos" element={token ? <RenderPage page={<DoctorPage />} /> : <Navigate to="/" replace /> } />
+                <Route path="/cadastrar-medico" element={token ? <RenderPage page={<CreateDoctorPage />} /> : <Navigate to="/" replace /> } />
             </Routes>
         </BrowserRouter>
     );
 };
- 
