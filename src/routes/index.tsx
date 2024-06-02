@@ -10,6 +10,8 @@ import { PiUserCirclePlusLight } from "react-icons/pi";
 import useAuthToken from '../hooks/useAuthToken';
 import DoctorPage from '../pages/doctor';
 import CreateDoctorPage from '../pages/create-doctor';
+import PatientPage from '../pages/patient';
+import CreatePatientPage from '../pages/create-patient';
 
 interface AsideItem {
     label: string;
@@ -74,6 +76,8 @@ export default function MyRoutes() {
                 <Route path="/home" element={token ? <RenderPage page={<HomePage />} navbarText="Dashboard" /> : <Navigate to="/" replace /> } />
                 <Route path="/medicos" element={token ? <RenderPage page={<DoctorPage />} /> : <Navigate to="/" replace /> } />
                 <Route path="/cadastrar-medico" element={token ? <RenderPage page={<CreateDoctorPage />} /> : <Navigate to="/" replace /> } />
+                <Route path="/pacientes" element={token ? <RenderPage page={<PatientPage />} /> : <Navigate to="/" replace /> } />
+                <Route path="/cadastrar-paciente" element={token ? <RenderPage page={<CreatePatientPage />} /> : <Navigate to="/" replace /> } />
             </Routes>
         </BrowserRouter>
     );
