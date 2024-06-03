@@ -31,7 +31,7 @@ export default function CreatePatientPage() {
         },
       });
       toast.success("Paciente cadastrado com sucesso!");
-      navigate('/medicos');
+      navigate('/pacientes');
     } catch (error) {
       console.error('Error:', error);
       toast.error("Erro ao cadastrar médico!");

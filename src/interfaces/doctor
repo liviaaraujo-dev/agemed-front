@@ -1,0 +1,7 @@
+export type Doctor = {
+  name: string
+  specialties: string[]
+  crm: string
+  phone: string
+  id:
+}

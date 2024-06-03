@@ -19,7 +19,7 @@ export default function PatientPage() {
 
   const [doctors, setDoctors] = useState<Patient[]>([]);
 
-  async function getDoctors() {
+  async function getPatients() {
     try {
       const response = await axiosInstance.get('/patients', {
         headers: {
@@ -34,7 +34,7 @@ export default function PatientPage() {
   }
 
   useEffect(() => {
-    getDoctors();
+    getPatients();
   }, [])
 
   return (

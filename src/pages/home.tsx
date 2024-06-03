@@ -71,10 +71,10 @@ function Patients() {
     <div className="bg-white p-6 rounded-lg shadow-md">
       <h3 className='text-2xl font-semibold text-black'>Pacientes</h3>
 
-      <Link className="bg-blue-700 font-semibold text-white w-[14rem] px-4 py-2 rounded mt-4 flex gap-2 items-center" to='/cadastrar-paciente'>
+      {/* <Link className="bg-blue-700 font-semibold text-white w-[14rem] px-4 py-2 rounded mt-4 flex gap-2 items-center" to='/cadastrar-paciente'>
         <IoIosAdd color='#ffffff' size={26} />
         Adicionar Paciente
-      </Link>
+      </Link> */}
 
       {patients.length > 0 && (
         <table className="table-auto w-full mt-6 text-black">
@@ -128,10 +128,10 @@ function Doctors() {
     <div className="bg-white p-6 rounded-lg shadow-md">
       <h3 className='text-2xl font-semibold text-black'>Médicos</h3>
 
-      <Link className="bg-blue-700 font-semibold text-white w-[14rem] px-4 py-2 rounded mt-4 flex gap-2 items-center" to='/cadastrar-medico'>
+      {/* <Link className="bg-blue-700 font-semibold text-white w-[14rem] px-4 py-2 rounded mt-4 flex gap-2 items-center" to='/cadastrar-medico'>
         <IoIosAdd color='#ffffff' size={26} />
         Adicionar Médico
-      </Link>
+      </Link> */}
 
       {doctors.length > 0 && (
         <table className="table-auto w-full mt-6 text-black">
@@ -185,10 +185,10 @@ function Appointments() {
     <div className="bg-white p-6 rounded-lg shadow-md">
       <h3 className='text-2xl font-semibold text-black'>Consultas</h3>
 
-      <Link className="bg-blue-700 font-semibold text-white w-[14rem] px-4 py-2 rounded mt-4 flex gap-2 items-center" to='/cadastrar-consulta'>
+      {/* <Link className="bg-blue-700 font-semibold text-white w-[14rem] px-4 py-2 rounded mt-4 flex gap-2 items-center" to='/cadastrar-consulta'>
         <IoIosAdd color='#ffffff' size={26} />
         Adicionar Consulta
-      </Link>
+      </Link> */}
 
       {appointments.length > 0 && (
         <table className="table-auto w-full mt-6 text-black">
