@@ -41,7 +41,7 @@ export default function PatientPage() {
     <div className="p-10 text-black rounded-lg">
       <h2 className='text-3xl font-semibold'>Pacientes</h2>
 
-      <Link className="bg-blue-700 font-semibold text-white w-[14rem] px-4 py-2 rounded mt-8 flex gap-2 items-center" to='/cadastrar-paciente'>
+      <Link className="bg-green-600 hover:bg-green-700 font-semibold text-white w-[14rem] px-4 py-2 rounded mt-8 flex gap-2 items-center" to='/cadastrar-paciente'>
         <IoIosAdd color='#ffffff' size={26} />
         Adicionar Paciente
       </Link>

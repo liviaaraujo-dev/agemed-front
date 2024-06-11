@@ -14,6 +14,8 @@ import CreatePatientPage from '../pages/create-patient';
 import HomePage from '../pages/home';
 import SchedulingPage from '../pages/scheduling';
 import CreateSchedulingPage from '../pages/create-scheduling';
+import { FaUserDoctor } from "react-icons/fa6";
+import { TfiAgenda } from "react-icons/tfi";
 
 interface AsideItem {
     label: string;
@@ -31,24 +33,24 @@ interface RenderPageProps {
             <DefaultLayout
                 asideData={[
                     {
-                        label: 'Dashboard',
+                        label: ' Dashboard ',
                         redirectTo: '/home',
-                        icon: <RiHomeLine size={24} />
-                    },
-                    {
-                        label: 'Pacientes',
-                        redirectTo: '/pacientes',
-                        icon: <PiUserCirclePlusLight size={24} />
-                    },
-                    {
-                        label: 'Agendamentos',
-                        redirectTo: '/agendamentos',
-                        icon: <PiUserCirclePlusLight size={24} />
+                        icon: <RiHomeLine size={26} />
                     },
                     {
                         label: 'Médicos',
                         redirectTo: '/medicos',
-                        icon: <PiUserCirclePlusLight size={24} />
+                        icon: <FaUserDoctor size={26} />
+                    },
+                    {
+                        label: 'Pacientes',
+                        redirectTo: '/pacientes',
+                        icon: <PiUserCirclePlusLight size={30} />
+                        },
+                    {
+                        label: 'Agendamentos',
+                        redirectTo: '/agendamentos',
+                        icon: <TfiAgenda size={22} />
                     },
                 ]}
                 navbarText={navbarText}

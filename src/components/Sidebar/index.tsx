@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { BodyBlurContainer, BodyContainer, BodyNoBlurContainer, Container, LinkContainer, LinksContainer, StyledText, TextContainer } from './styles';
+import logo from '../../assets/logo.png'
 
 interface SidebarProps {
   asideData: { redirectTo: string; icon: React.ReactNode; label: string }[];
@@ -19,8 +20,13 @@ const Sidebar: React.FC<SidebarProps> = ({ asideData }) => {
       <BodyNoBlurContainer>
         <BodyContainer>
           <TextContainer>
-            <StyledText className="text-center font-caveat text-5xl font-bold">AgeMed</StyledText>
+            {/* <StyledText className="text-center font-caveat text-5xl font-bold">AgeMed</StyledText> */}
           </TextContainer>
+          
+          <a href='/home'>
+            <img src={logo} width={150} className='ml-6 mt-6' />
+          </a>
+
           <LinksContainer>
             {asideData.map((v, i) => (
               <LinkContainer key={i} onClick={() => goToPath(v.redirectTo)}>

@@ -4,7 +4,9 @@ export const Container = styled.div`
   position: relative;
   height: 100%;
   width: 100%;
-  background-color: #00000020;
+  background-color: #000;
+  color: #fff;
+  font-weight: bold;
 `;
 
 export const StyledText = styled.p`
@@ -51,10 +53,16 @@ export const LinkContainer = styled.div`
   align-items: center;
   cursor: pointer;
   padding-left: 20px;
+  align-items: center;
+  gap: 5px;
+  margin-top: 20px;
+  width: 80%;
+
 
   :hover{
-    background: #FFFFFF33;
-    border-left: 2px solid white;
+    /* background: #FFFFFF33; */
+    /* border-left: 2px solid white; */
+    background-color: #f18484;
   }
 `;
 

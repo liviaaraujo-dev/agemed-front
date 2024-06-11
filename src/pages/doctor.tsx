@@ -45,7 +45,7 @@ export default function DoctorPage() {
       </div> */}
       <h2 className='text-3xl font-semibold'>Médicos</h2>
 
-      <Link className="bg-blue-700 font-semibold text-white w-[14rem] px-4 py-2 rounded mt-8 flex gap-2 items-center" to='/cadastrar-medico'>
+      <Link className="bg-green-600 font-semibold hover:bg-green-700 text-white w-[14rem] px-4 py-2 rounded mt-8 flex gap-2 items-center" to='/cadastrar-medico'>
         <IoIosAdd color='#ffffff' size={26} />
         Adicionar Médico
       </Link>

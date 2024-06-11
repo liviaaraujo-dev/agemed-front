@@ -29,16 +29,107 @@ type Appointment = {
   status: string;
 }
 
+type Scheduling = {
+  patientId: string;
+  doctorId: string;
+  date: string;
+};
+
 export default function HomePage() {
+  const { token } = useAuthToken();
+
+  const [agendamentosHoje, setAgendamentosHoje] = useState(0);
+
+  const [patients, setPatients] = useState<Patient[]>([]);
+  const [totalPatients, setTotalPatients] = useState(0);
+  
+  const [doctors, setDoctors] = useState<Doctor[]>([]);
+  const [totalDoctors, setTotalDoctors] = useState();
+
+  const [schedulings, setSchedulings] = useState<Scheduling[]>([]);
+  const [totalSchedulings, setTotalSchedulings] = useState([]);
+
+  async function getSchedulings() {
+    try {
+      const response = await axiosInstance.get('/scheduling', {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      setSchedulings(response.data);
+      setTotalSchedulings(response.data.length);
+    } catch (error) {
+      console.error('Error:', error);
+      toast.error("Erro ao buscar dados!");
+    }
+  }
+
+
+  async function getPatients() {
+    try {
+      const response = await axiosInstance.get('/patients', {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      setPatients(response.data);
+      setTotalPatients(response.data.length);
+    } catch (error) {
+      console.error('Error:', error);
+      toast.error("Erro ao buscar dados!");
+    }
+  }
+
+
+  async function getDoctors() {
+    try {
+      const response = await axiosInstance.get('/doctors', {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      setDoctors(response.data);
+      setTotalDoctors(response.data.length);
+    } catch (error) {
+      console.error('Error:', error);
+      toast.error("Erro ao buscar dados!");
+    }
+  }
+
+  
+  useEffect(() => {
+    // Função para buscar os dados de agendamentos, pacientes e médicos
+ 
+    getPatients();
+    getDoctors();
+    getSchedulings();
+  }, []);
+
+  
   return (
-    <div className="p-10">
-      <div className="bg-black bg-opacity-50 text-white rounded-lg p-6">
-        <h2 className='text-3xl font-semibold'>Dashboard</h2>
+    <div className="p-2">
+     
+     <div className="p-6">
+      <h1 className="text-4xl font-bold mb-6">Dashboard</h1>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="bg-white p-6 rounded-lg shadow-lg text-center">
+          <h2 className="text-2xl font-semibold text-blue-700">Agendamentos Hoje</h2>
+          <p className="text-4xl text-gray-800">{totalSchedulings}</p>
+        </div>
+        <div className="bg-white p-6 rounded-lg shadow-lg text-center">
+          <h2 className="text-2xl font-semibold text-green-700">Pacientes Cadastrados</h2>
+          <p className="text-4xl text-gray-800">{totalPatients}</p>
+        </div>
+        <div className="bg-white p-6 rounded-lg shadow-lg text-center">
+          <h2 className="text-2xl font-semibold text-blue-700">Médicos Cadastrados</h2>
+          <p className="text-4xl text-gray-800">{totalDoctors}</p>
+        </div>
+      </div>
 
         <div className="mt-8 grid grid-cols-1 gap-8">
           <Patients />
           <Doctors />
-          <Appointments />
+          {/* <Appointments /> */}
         </div>
       </div>
     </div>
@@ -59,7 +150,6 @@ function Patients() {
       setPatients(response.data);
     } catch (error) {
       console.error('Error:', error);
-      toast.error("Erro ao buscar dados!");
     }
   }
 
@@ -116,7 +206,6 @@ function Doctors() {
       setDoctors(response.data);
     } catch (error) {
       console.error('Error:', error);
-      toast.error("Erro ao buscar dados!");
     }
   }
 
@@ -161,16 +250,16 @@ function Doctors() {
 
 function Appointments() {
   const { token } = useAuthToken();
-  const [appointments, setAppointments] = useState<Appointment[]>([]);
+  const [schedulings, setSchedulings] = useState<Scheduling[]>([]);
 
-  async function getAppointments() {
+  async function getSchedulings() {
     try {
-      const response = await axiosInstance.get('/appointments', {
+      const response = await axiosInstance.get('/scheduling', {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       });
-      setAppointments(response.data);
+      setSchedulings(response.data);
     } catch (error) {
       console.error('Error:', error);
       toast.error("Erro ao buscar dados!");
@@ -178,7 +267,7 @@ function Appointments() {
   }
 
   useEffect(() => {
-    getAppointments();
+    getSchedulings();
   }, []);
 
   return (
@@ -190,7 +279,7 @@ function Appointments() {
         Adicionar Consulta
       </Link> */}
 
-      {appointments.length > 0 && (
+      {schedulings.length > 0 && (
         <table className="table-auto w-full mt-6 text-black">
           <thead>
             <tr>
@@ -202,13 +291,13 @@ function Appointments() {
             </tr>
           </thead>
           <tbody>
-            {appointments.map((appointment, index) => (
+            {schedulings.map((scheduling, index) => (
               <tr key={index} className="bg-gray-100 border-b">
-                <td className="px-4 py-2">{appointment.patientName}</td>
+                {/* <td className="px-4 py-2">{scheduling.}</td>
                 <td className="px-4 py-2">{appointment.doctorName}</td>
                 <td className="px-4 py-2">{appointment.date}</td>
                 <td className="px-4 py-2">{appointment.time}</td>
-                <td className="px-4 py-2">{appointment.status}</td>
+                <td className="px-4 py-2">{appointment.status}</td> */}
               </tr>
             ))}
           </tbody>
